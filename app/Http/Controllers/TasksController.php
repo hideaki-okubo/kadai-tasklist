@@ -15,13 +15,22 @@ class TasksController extends Controller
      */
     public function index()
     {
+        $data = [];
+        if (\Auth::check()) {
+        $user = \Auth::user();
         $tasks = Task::paginate(25);
-        
+        $data = [
+                'user' => $user,
+                'tasks' => $tasks,
+            ];
+        }
+        return view('welcome', $data);
         return view("tasks.index",["tasks"=>$tasks,]);
     }
 
     public function create()
     {
+        
         $task = new Task;
         
         return view("tasks.create",["task"=>$task,]);//
@@ -76,6 +85,9 @@ class TasksController extends Controller
     {
         $task = Task::find($id);
         $task -> delete();
+        if (\Auth::id() === $task->user_id) {
+            $task->delete();
+        }
         
         return redirect("/");
     }
