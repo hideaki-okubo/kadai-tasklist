@@ -26,5 +26,5 @@
     @endif
     {{ $tasks->links('pagination::bootstrap-4') }}
     {!! link_to_route('tasks.create', '新規タスクの投稿', [], ['class' => 'btn btn-primary']) !!}
-
+    
 @endsection

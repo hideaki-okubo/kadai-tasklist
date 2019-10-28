@@ -14,4 +14,5 @@
             </li>
         @endforeach
     </ul>
+    {{ $users->links('pagination::bootstrap-4') }}
 @endif
