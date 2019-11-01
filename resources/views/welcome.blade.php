@@ -8,7 +8,7 @@
     @else
         <div class="center jumbotron">
             <div class="text-center">
-                <h1>TaskListへようこそ</h1>
+                <h1>Task List へようこそ</h1>
                 {!! link_to_route('signup.get', 'サインアップ', [], ['class' => 'btn btn-lg btn-primary']) !!}
             </div>
         </div>
