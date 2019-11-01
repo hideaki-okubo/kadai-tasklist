@@ -23,11 +23,10 @@
     <div>
         @if (Auth::id() == $task->user_id)
             {!! Form::open(['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
-            {!! link_to_route('tasks.edit', 'このタスクを編集', ['id' => $task->id], ['class' => 'btn btn-light']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                {!! link_to_route('tasks.edit', 'このタスクを編集', ['id' => $task->id], ['class' => 'btn btn-light']) !!}
+                {!! Form::submit('タスクを削除', ['class' => 'btn btn-danger btn-sm']) !!}
             {!! Form::close() !!}
         @endif
     </div>
-    {!! Form::close() !!}
 
 @endsection
